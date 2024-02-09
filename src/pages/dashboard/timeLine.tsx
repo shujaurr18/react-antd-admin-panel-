@@ -50,7 +50,7 @@ const TimeLine: FC<{ loading: boolean }> = ({ loading }) => {
           <Tooltip content={<CustomTooltip />} />
           <Line type="monotone" dataKey="traffic" stroke="#3F90F7" />
           <Line type="monotone" dataKey="payments" stroke="#61BE82" />
-          <Brush dataKey="name" fill="#13c2c2" />
+          <Brush dataKey="name" fill="#2B547E" />
           <Legend
             verticalAlign="top"
             height={40}
