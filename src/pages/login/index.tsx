@@ -1,5 +1,5 @@
 import type { LoginParams } from '@/interface/user/login';
-import type { FC } from 'react';
+import { FC, useState } from 'react';
 
 import './index.less';
 
@@ -13,6 +13,8 @@ import { formatSearch } from '@/utils/formatSearch';
 import { loginAsync } from '../../stores/user.action';
 import whiteLogo from '../../assets/logo/whiteLogo.png'
 // import { login } from 'react-feather';
+import ForgotPasswordModal from "./ForgotPasswordModal.jsx"
+import { EyeOutlined,EyeInvisibleOutlined } from '@ant-design/icons';
 
 const initialValues: LoginParams = {
   username: 'guest',
@@ -25,6 +27,15 @@ const LoginForm: FC = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { formatMessage } = useLocale();
+  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
+
+  const onForgotPasswordClick = () => {
+    setForgotPasswordModalVisible(true);
+  };
+
+  const onCancelForgotPassword = () => {
+    setForgotPasswordModalVisible(false);
+  };
 
   const onFinished = async (form: LoginParams) => {
     const res = dispatch(await loginAsync(form));
@@ -49,7 +60,7 @@ const LoginForm: FC = () => {
 
       <Form<LoginParams>
       layout='vertical'
-      onFinish={onFinished} className="login-page-form" initialValues={initialValues}>
+      onFinish={onFinished} className="login-page-form" >
         <h1 className='mb-4'>Login</h1>
         <p className=' font-weight-bold mb-4 welcome-text'>Welcome Back!</p>
           <Form.Item
@@ -71,26 +82,25 @@ const LoginForm: FC = () => {
               })}
             />
           </Form.Item>
-        <Form.Item
-      
-        label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: formatMessage({
-                id: 'gloabal.tips.enterPasswordMessage',
-              }),
-            },
-          ]}
-        >
-          <Input
-            type="password"
-            placeholder={formatMessage({
-              id: 'gloabal.tips.password',
-            })}
-          />
-        </Form.Item>
+          <Form.Item
+  label="Password"
+  name="password"
+  rules={[
+    {
+      required: true,
+      message: formatMessage({
+        id: 'gloabal.tips.enterPasswordMessage',
+      }),
+    },
+  ]}
+>
+  <Input.Password
+    placeholder={formatMessage({
+      id: 'gloabal.tips.password',
+    })}
+    iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
+  />
+</Form.Item>
         <div className="d-flex justify-content-between align-items-center">
 
         <Form.Item name="remember" valuePropName="checked">
@@ -98,7 +108,9 @@ const LoginForm: FC = () => {
             <LocaleFormatter id="gloabal.tips.rememberUser" />
           </Checkbox>
         </Form.Item>
-        <p className='text-primary font-weight-medium' >Forgot Password?</p>
+        <p className='text-primary font-weight-medium cursor-pointer'
+        onClick={onForgotPasswordClick}
+        >Forgot Password?</p>
         </div>
         <Form.Item>
           <Button htmlType="submit" type="primary" className="">
@@ -109,6 +121,10 @@ const LoginForm: FC = () => {
   </div>
       </div>
 </div>
+<ForgotPasswordModal
+        visible={forgotPasswordModalVisible}
+        onCancel={onCancelForgotPassword}
+      />
     </div>
   );
 };

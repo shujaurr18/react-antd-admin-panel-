@@ -1,7 +1,7 @@
 import type { Notice } from '@/interface/layout/notice.interface';
 import type { FC } from 'react';
 
-import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined ,BellFilled} from '@ant-design/icons';
 import { Avatar, Badge, List, Popover, Spin, Tabs, Tag, Tooltip } from 'antd';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -43,75 +43,19 @@ const HeaderNoticeComponent: FC = () => {
   const tabs = (
     <div>
       <Spin tip="Loading..." indicator={antIcon} spinning={loading}>
-        <Tabs defaultActiveKey="1">
-          <TabPane
-            tab={`${formatMessage({
-              id: 'app.notice.messages',
-            })}(${noticeListFilter('notification').length})`}
-            key="1"
-          >
-            <List
+    
+      <List
               dataSource={noticeListFilter('notification')}
               renderItem={item => (
                 <List.Item>
                   <List.Item.Meta
-                    avatar={<Avatar src={item.avatar} />}
+                    // avatar={<Avatar src={item.avatar} />}
                     title={<a href={item.title}>{item.title}</a>}
                     description={item.datetime}
                   />
                 </List.Item>
               )}
             />
-          </TabPane>
-
-          <TabPane
-            tab={`${formatMessage({
-              id: 'app.notice.news',
-            })}(${noticeListFilter('message').length})`}
-            key="2"
-          >
-            <List
-              dataSource={noticeListFilter('message')}
-              renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    avatar={<Avatar src={item.avatar} />}
-                    title={<a href={item.title}>{item.title}</a>}
-                    description={
-                      <div className="notice-description">
-                        <div className="notice-description-content">{item.description}</div>
-                        <div className="notice-description-datetime">{item.datetime}</div>
-                      </div>
-                    }
-                  />
-                </List.Item>
-              )}
-            />
-          </TabPane>
-          <TabPane
-            tab={`${formatMessage({
-              id: 'app.notice.tasks',
-            })}(${noticeListFilter('event').length})`}
-            key="3"
-          >
-            <List
-              dataSource={noticeListFilter('event')}
-              renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    title={
-                      <div className="notice-title">
-                        <div className="notice-title-content">{item.title}</div>
-                        <Tag color={EventStatus[item.status]}>{item.extra}</Tag>
-                      </div>
-                    }
-                    description={item.description}
-                  />
-                </List.Item>
-              )}
-            />
-          </TabPane>
-        </Tabs>
       </Spin>
     </div>
   );
@@ -135,7 +79,8 @@ const HeaderNoticeComponent: FC = () => {
       >
         <Badge count={noticeCount} overflowCount={999}>
           <span className="notice" id="notice-center">
-            <NoticeSvg className="anticon" />
+            
+            <BellFilled style={{width:15}} />
           </span>
         </Badge>
       </Tooltip>

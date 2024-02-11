@@ -63,22 +63,8 @@ const TagsView: FC = () => {
 
   return (
     <div id="pageTabs" style={{ padding: '6px 4px' }}>
-      <Tabs
-        tabBarStyle={{ margin: 0 }}
-        onChange={onChange}
-        activeKey={activeTagId}
-        type="editable-card"
-        hideAdd
-        onEdit={(targetKey, action) => action === 'remove' && onClose(targetKey as string)}
-        tabBarExtraContent={<TagsViewAction />}
-        items={tags.map(tag => {
-          return {
-            key: tag.path,
-            closable: tag.closable,
-            label: tag.label[locale],
-          };
-        })}
-      />
+   
+   
     </div>
   );
 };

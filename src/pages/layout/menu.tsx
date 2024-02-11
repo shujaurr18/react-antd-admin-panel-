@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setUserItem } from '@/stores/user.store';
-
+{/* <RightOutlined /> */}
 import { CustomIcon } from './customIcon';
+
+import { RightOutlined ,BellFilled} from '@ant-design/icons';
 
 interface MenuProps {
   menuList: MenuList;
@@ -25,9 +27,13 @@ const MenuComponent: FC<MenuProps> = props => {
 
   const getTitle = (menu: MenuList[0]) => {
     return (
-      <span style={{ display: 'flex', alignItems: 'center' }}>
+      <span style={{ display: 'flex', alignItems: 'center',justifyContent:'space-between' }}>
+       <div className='flex align-items-center '>
+
         <CustomIcon type={menu.icon!} />
         <span>{menu.label[locale]}</span>
+       </div>
+        <RightOutlined/>
       </span>
     );
   };
@@ -54,7 +60,7 @@ const MenuComponent: FC<MenuProps> = props => {
       openKeys={openKey ? [openKey] : []}
       onOpenChange={onOpenChange}
       onSelect={k => onMenuClick(k.key)}
-      className="layout-page-sider-menu text-2"
+      className="layout-page-sider-menu text-2 pt-2"
       items={menuList.map(menu => {
         return menu.children
           ? {
@@ -64,11 +70,13 @@ const MenuComponent: FC<MenuProps> = props => {
                 key: child.path,
                 label: child.label[locale],
               })),
+              
             }
           : {
               key: menu.path,
               label: getTitle(menu),
-            };
+              
+            }
       })}
     ></Menu>
   );

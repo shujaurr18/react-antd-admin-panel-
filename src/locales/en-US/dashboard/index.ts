@@ -1,7 +1,7 @@
 export const enUS_dashboard = {
   'app.dashboard.overview.totalSales': 'Total Sales',
   'app.dashboard.overview.visits': 'Visits',
-  'app.dashboard.overview.payments': 'Payments',
+  'app.dashboard.overview.payments': 'Primary Text',
   'app.dashboard.overview.operationalEffect': 'Operational Effect',
   'app.dashboard.overview.wowChange': 'WoW Change',
   'app.dashboard.overview.dodChange': 'DoD Change',

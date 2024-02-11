@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 import './index.less';
 
-import { Drawer, Layout, theme as antTheme } from 'antd';
+import { Drawer, Layout, Select, theme as antTheme } from 'antd';
 import { Suspense, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useLocation } from 'react-router';
@@ -140,8 +140,36 @@ const LayoutPage: FC = () => {
             />
           </Drawer>
         )}
+        
         <Content className="layout-page-content">
-          <TagsView />
+        <div className="bg-white p-3 d-flex gap-4">
+          <Select size='large' className='w-100' placeholder="Week Filter">
+            <Select.Option value="This week">
+            This week
+            </Select.Option>
+
+          </Select>
+          <Select size='large' className='w-100' placeholder="Product Filter">
+            <Select.Option value="This week">
+            This week
+            </Select.Option>
+            
+          </Select>
+          <Select size='large' className='w-100' placeholder="Order Status">
+            <Select.Option value="This week">
+            This week
+            </Select.Option>
+            
+          </Select>
+          <Select size='large' className='w-100' placeholder="Customer Filter">
+            <Select.Option value="This week">
+            This week
+            </Select.Option>
+            
+          </Select>
+        </div>
+          {/* <TagsView /> */}
+          
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
