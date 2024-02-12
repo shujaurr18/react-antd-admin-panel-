@@ -27,11 +27,12 @@ const { Header } = Layout;
 interface HeaderProps {
   collapsed: boolean;
   toggle: () => void;
+  isMobile: boolean;
 }
 
 type Action = 'userInfo' | 'userSetting' | 'logout';
 
-const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
+const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle,isMobile }) => {
   const { logged, locale, device } = useSelector(state => state.user);
   const { theme } = useSelector(state => state.global);
   const navigate = useNavigate();
@@ -78,20 +79,22 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
 
   return (
     <Header className="layout-page-header bg-2" style={{ backgroundColor: token.token.colorBgContainer }}>
-      {device !== 'MOBILE' && (
-        <div className="logo" style={{ width: collapsed ? 80 : 250 }}>
+      {/* {device !== 'MOBILE' && ( */}
+        <div className="logo" style={{ width: collapsed ? 250 : 250 }}>
           <img src={ReactSvg} alt="" style={{ marginRight: collapsed ? '2px' : '20px' }} />
           {/* <img src={AntdSvg} alt="" /> */}
+         
+          {!isMobile &&
           <span className='text-capitalize font-weight-medium'>
 
-<RightOutlined className='font-weight-medium' style={{width:12,position:'relative',top:2}}  />      {window.location.pathname.replace(/\//g, '')}
-</span>
+          <RightOutlined className='font-weight-medium' style={{width:12,position:'relative',top:2}}  />      {window.location.pathname.replace(/\//g, '')}
+          </span>
+          } 
         </div>
-      )}
+      {/* )} */}
       <div className="layout-page-header-main">
         <div >
 
-          {/* <span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span> */}
         </div>
         <div className="actions">
       
@@ -162,6 +165,8 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
               {formatMessage({ id: 'gloabal.tips.login' })}
             </span>
           )}
+       {isMobile&&<span onClick={()=>toggle()} id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuUnfoldOutlined />}</span>}   
+
         </div>
       </div>
       <Modal

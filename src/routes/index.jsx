@@ -1,5 +1,3 @@
-import type { FC } from 'react';
-import type { RouteObject } from 'react-router';
 
 import { lazy } from 'react';
 import { Navigate } from 'react-router';
@@ -10,9 +8,10 @@ import LayoutPage from '@/pages/layout';
 import LoginPage from '@/pages/login';
 
 import WrapperRouteComponent from './config';
+// import OrdersPage from '@/pages/orders';
 
 const NotFound = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/404'));
-const Documentation = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/doucumentation'));
+const OrdersPage = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/orders'));
 const Guide = lazy(() => import(/* webpackChunkName: "guide'"*/ '@/pages/guide'));
 const RoutePermission = lazy(() => import(/* webpackChunkName: "route-permission"*/ '@/pages/permission/route'));
 const FormPage = lazy(() => import(/* webpackChunkName: "form'"*/ '@/pages/components/form'));
@@ -29,7 +28,7 @@ const BusinessWithRadioCardsPage = lazy(
 );
 const BusinessWithTabsPage = lazy(() => import(/* webpackChunkName: "with-tabs" */ '@/pages/business/with-tabs'));
 
-const routeList: RouteObject[] = [
+const routeList = [
   {
     path: '/login',
     element: <WrapperRouteComponent element={<LoginPage />} titleId="title.login" />,
@@ -47,8 +46,8 @@ const routeList: RouteObject[] = [
         element: <WrapperRouteComponent element={<Dashboard />} titleId="title.dashboard" />,
       },
       {
-        path: 'documentation',
-        element: <WrapperRouteComponent element={<Documentation />} titleId="title.documentation" />,
+        path: 'orders',
+        element: <WrapperRouteComponent element={<OrdersPage />} titleId="title.orders" />,
       },
       {
         path: 'guide',
@@ -110,7 +109,7 @@ const routeList: RouteObject[] = [
   },
 ];
 
-const RenderRouter: FC = () => {
+const RenderRouter = () => {
   const element = useRoutes(routeList);
 
   return element;

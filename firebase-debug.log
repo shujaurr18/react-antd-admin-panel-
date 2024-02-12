@@ -1,0 +1,31 @@
+[debug] [2024-02-12T17:37:29.220Z] ----------------------------------------------------------------------
+[debug] [2024-02-12T17:37:29.221Z] Command:       /Users/mac/.nvm/versions/node/v18.16.1/bin/node /Users/mac/.nvm/versions/node/v18.16.1/bin/firebase deploy
+[debug] [2024-02-12T17:37:29.222Z] CLI Version:   12.5.2
+[debug] [2024-02-12T17:37:29.222Z] Platform:      darwin
+[debug] [2024-02-12T17:37:29.222Z] Node Version:  v18.16.1
+[debug] [2024-02-12T17:37:29.224Z] Time:          Mon Feb 12 2024 22:37:29 GMT+0500 (Pakistan Standard Time)
+[debug] [2024-02-12T17:37:29.224Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-12T17:37:29.286Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-12T17:37:29.286Z] > authorizing via signed-in user (shujaurr18@gmail.com)
+[debug] [2024-02-12T17:37:29.287Z] [iam] checking project myorderadmin-d30e4 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-02-12T17:37:29.289Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions [none]
+[debug] [2024-02-12T17:37:29.289Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions x-goog-quota-user=projects/myorderadmin-d30e4
+[debug] [2024-02-12T17:37:29.289Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-12T17:38:12.704Z] *** [apiv2] error from fetch(https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions, {"headers":{},"method":"POST","body":"{\"permissions\":[\"firebase.projects.get\",\"firebasehosting.sites.update\"]}"}): FetchError: request to https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions failed, reason: read ECONNRESET
+[debug] [2024-02-12T17:38:12.705Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions
+[debug] [2024-02-12T17:38:12.707Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myorderadmin-d30e4 [none]
+[debug] [2024-02-12T17:38:23.901Z] ----------------------------------------------------------------------
+[debug] [2024-02-12T17:38:23.903Z] Command:       /Users/mac/.nvm/versions/node/v18.16.1/bin/node /Users/mac/.nvm/versions/node/v18.16.1/bin/firebase deploy
+[debug] [2024-02-12T17:38:23.903Z] CLI Version:   12.5.2
+[debug] [2024-02-12T17:38:23.903Z] Platform:      darwin
+[debug] [2024-02-12T17:38:23.903Z] Node Version:  v18.16.1
+[debug] [2024-02-12T17:38:23.904Z] Time:          Mon Feb 12 2024 22:38:23 GMT+0500 (Pakistan Standard Time)
+[debug] [2024-02-12T17:38:23.905Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-12T17:38:23.969Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-12T17:38:23.969Z] > authorizing via signed-in user (shujaurr18@gmail.com)
+[debug] [2024-02-12T17:38:23.969Z] [iam] checking project myorderadmin-d30e4 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-02-12T17:38:23.971Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions [none]
+[debug] [2024-02-12T17:38:23.972Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions x-goog-quota-user=projects/myorderadmin-d30e4
+[debug] [2024-02-12T17:38:23.972Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myorderadmin-d30e4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

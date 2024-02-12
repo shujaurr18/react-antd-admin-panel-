@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+
 
 import './index.less';
 
@@ -8,13 +8,13 @@ import Overview from './overview';
 import SalePercent from './salePercent';
 import TimeLine from './timeLine';
 
-const DashBoardPage: FC = () => {
+const DashBoardPage = () => {
   const [loading, setLoading] = useState(true);
 
   // mock timer to mimic dashboard data loading
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(undefined as any);
+      setLoading(undefined);
     }, 2000);
 
     return () => {
@@ -25,8 +25,9 @@ const DashBoardPage: FC = () => {
   return (
     <div>
       <Overview loading={loading} />
-      <SalePercent loading={loading} />
-      <TimeLine loading={loading} />
+      
+      {/* <SalePercent loading={loading} /> */}
+      {/* <TimeLine loading={loading} /> */}
     </div>
   );
 };

@@ -27,25 +27,25 @@ export const useGuide = () => {
   const driverStart = () => {
     setTimeout(() => {
       driver.current.defineSteps([
-        {
-          element: '#sidebar-trigger',
-          popover: {
-            title: formatMessage({ id: 'app.guide.driverStep.sidebarTrigger.title' }),
-            description: formatMessage({ id: 'app.guide.driverStep.sidebarTrigger.description' }),
-            position: 'bottom',
-            offset: 10,
-            isFirst: true,
-          },
-        },
-        {
-          element: '#notice-center',
-          popover: {
-            title: formatMessage({ id: 'app.guide.driverStep.notices.title' }),
-            description: formatMessage({ id: 'app.guide.driverStep.notices.description' }),
-            position: 'bottom',
-            offset: -160,
-          },
-        },
+        // {
+        //   element: '#sidebar-trigger',
+        //   popover: {
+        //     title: formatMessage({ id: 'app.guide.driverStep.sidebarTrigger.title' }),
+        //     description: formatMessage({ id: 'app.guide.driverStep.sidebarTrigger.description' }),
+        //     position: 'bottom',
+        //     offset: 10,
+        //     isFirst: true,
+        //   },
+        // },
+        // {
+        //   element: '#notice-center',
+        //   popover: {
+        //     title: formatMessage({ id: 'app.guide.driverStep.notices.title' }),
+        //     description: formatMessage({ id: 'app.guide.driverStep.notices.description' }),
+        //     position: 'bottom',
+        //     offset: -160,
+        //   },
+        // },
         {
           element: '#language-change',
           popover: {

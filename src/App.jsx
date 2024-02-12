@@ -15,7 +15,7 @@ import RenderRouter from './routes';
 import { setGlobalState } from './stores/global.store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App: React.FC = () => {
+const App = () => {
   const { locale } = useSelector(state => state.user);
   const { theme, loading } = useSelector(state => state.global);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const App: React.FC = () => {
     if (!localStorage.getItem('theme')) {
       const mql = window.matchMedia('(prefers-color-scheme: dark)');
 
-      function matchMode(e: MediaQueryListEvent) {
+      function matchMode(e) {
         setTheme(e.matches);
       }
 

@@ -1,4 +1,3 @@
-import type { LoginParams } from '@/interface/user/login';
 import { FC, useState } from 'react';
 
 import './index.less';
@@ -13,16 +12,16 @@ import { formatSearch } from '@/utils/formatSearch';
 import { loginAsync } from '../../stores/user.action';
 import whiteLogo from '../../assets/logo/whiteLogo.png'
 // import { login } from 'react-feather';
-import ForgotPasswordModal from "./ForgotPasswordModal.jsx"
+import ForgotPasswordModal from "./ForgotPasswordModal"
 import { EyeOutlined,EyeInvisibleOutlined } from '@ant-design/icons';
 
-const initialValues: LoginParams = {
+const initialValues= {
   username: 'guest',
   password: 'guest',
   // remember: true
 };
 
-const LoginForm: FC = () => {
+const LoginForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const LoginForm: FC = () => {
     setForgotPasswordModalVisible(false);
   };
 
-  const onFinished = async (form: LoginParams) => {
+  const onFinished = async (form) => {
     const res = dispatch(await loginAsync(form));
 
     if (!!res) {
@@ -52,13 +51,13 @@ const LoginForm: FC = () => {
     <div className="login-page">
       <div className="container-fluid">
 
-<div className="row align-items-center">
+<div className="row  row-reverse-mobile   align-items-center">
   <div className="col-md-8 bgLogin">
 <img src={whiteLogo} height={200} alt="" />
   </div>
   <div className="col-md-4">
 
-      <Form<LoginParams>
+      <Form
       layout='vertical'
       onFinish={onFinished} className="login-page-form" >
         <h1 className='mb-4'>Login</h1>

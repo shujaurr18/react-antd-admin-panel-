@@ -102,7 +102,7 @@ const LayoutPage: FC = () => {
 
   return (
     <Layout className="layout-page">
-      <HeaderComponent collapsed={collapsed} toggle={toggle} />
+      <HeaderComponent collapsed={collapsed} toggle={toggle} isMobile={isMobile}/>
       <Layout>
         {!isMobile ? (
           <Sider
@@ -142,32 +142,8 @@ const LayoutPage: FC = () => {
         )}
         
         <Content className="layout-page-content">
-        <div className="bg-white p-3 d-flex gap-4">
-          <Select size='large' className='w-100' placeholder="Week Filter">
-            <Select.Option value="This week">
-            This week
-            </Select.Option>
-
-          </Select>
-          <Select size='large' className='w-100' placeholder="Product Filter">
-            <Select.Option value="This week">
-            This week
-            </Select.Option>
-            
-          </Select>
-          <Select size='large' className='w-100' placeholder="Order Status">
-            <Select.Option value="This week">
-            This week
-            </Select.Option>
-            
-          </Select>
-          <Select size='large' className='w-100' placeholder="Customer Filter">
-            <Select.Option value="This week">
-            This week
-            </Select.Option>
-            
-          </Select>
-        </div>
+       
+    <div></div>
           {/* <TagsView /> */}
           
           <Suspense fallback={null}>
